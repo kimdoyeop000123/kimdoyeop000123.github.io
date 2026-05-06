@@ -205,37 +205,67 @@
     .hero-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 14px;
       animation: fadeUp 0.6s ease 0.35s both;
     }
     .stat-card {
       background: var(--bg3);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      transition: border-color 0.2s;
+      border-radius: 14px;
+      padding: 22px 24px;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+      overflow: hidden;
     }
-    .stat-card:hover { border-color: var(--border2); }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .stat-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .stat-card:hover::before { opacity: 1; }
     .stat-card.wide { grid-column: 1 / -1; }
+    .stat-card.wide::before {
+      background: linear-gradient(90deg, var(--accent), var(--green));
+    }
+    .stat-icon {
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: block;
+    }
     .stat-num {
       font-family: 'Syne', sans-serif;
-      font-size: 32px;
+      font-size: 36px;
       font-weight: 800;
       color: var(--accent2);
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+    .stat-card.wide .stat-num {
+      font-size: clamp(22px, 2.8vw, 30px);
       letter-spacing: -1px;
+      background: linear-gradient(90deg, var(--accent2), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     .stat-label {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text3);
-      margin-top: 4px;
+      margin-top: 6px;
       font-family: 'JetBrains Mono', monospace;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
     }
     .stat-detail {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text2);
       margin-top: 8px;
+      line-height: 1.6;
     }
 
     @keyframes fadeUp {
@@ -643,7 +673,7 @@
         <span class="ko">김도엽</span>
         Kim Doyeop
       </h1>
-      <div class="hero-title">Data Analyst & Applied AI Engineer</div>
+      <div class="hero-title">Data Analyst</div>
       <p class="hero-desc">
         데이터로 문제를 정의하고, 분석으로 인사이트를 도출합니다.<br>
         다양한 도메인의 데이터에서 패턴을 찾고,<br>
@@ -657,14 +687,16 @@
     </div>
     <div class="hero-stats">
       <div class="stat-card">
-        <div class="stat-num">5+</div>
+        <span class="stat-icon">📁</span>
+        <div class="stat-num">5</div>
         <div class="stat-label">Projects</div>
-        <div class="stat-detail">데이터 분석 · AI · IoT · iOS</div>
+        <div class="stat-detail">팀 프로젝트 3회 · 개인 프로젝트 2회</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">5+</div>
-        <div class="stat-label">Tech Stack</div>
-        <div class="stat-detail">Python · SQL · React · ML · Cloud</div>
+        <span class="stat-icon">🏆</span>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Certifications</div>
+        <div class="stat-detail">ADsP · SQLD · 정보처리기사 필기합격</div>
       </div>
       <div class="stat-card wide">
         <div class="stat-num">Data → Insight → Action</div>
@@ -682,7 +714,7 @@
       <div class="section-label">// about me</div>
       <h2 class="section-title">소개</h2>
       <p>
-        한성대학교에서 모바일 소프트웨어 전공, 빅데이터 트랙을 이수하며 데이터 분석과 AI 엔지니어링 역량을 쌓았습니다.
+        한성대학교에서 모바일 소프트웨어 트랙, 빅데이터 트랙을 이수하며 데이터 분석과 AI 엔지니어링 역량을 쌓았습니다.
       </p>
       <p>
         다양한 도메인의 데이터에서 패턴을 발견하고 의미 있는 인사이트를 도출하는 것에 관심이 깊으며, 데이터 기반 의사결정을 커리어 방향으로 설정했습니다.
@@ -735,7 +767,6 @@
       <div class="skill-group-title">Language & Data</div>
       <div class="skill-tags">
         <span class="tag accent">Python</span>
-        <span class="tag accent">R</span>
         <span class="tag">SQL</span>
         <span class="tag">Pandas</span>
         <span class="tag">NumPy</span>
