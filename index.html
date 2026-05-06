@@ -370,6 +370,10 @@
       content: 'FR';
       color: rgba(16,185,129,0.04);
     }
+    .project-banner.banner-im::before {
+      content: 'IM';
+      color: rgba(167,139,250,0.04);
+    }
     .project-banner-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
@@ -653,19 +657,19 @@
     </div>
     <div class="hero-stats">
       <div class="stat-card">
-        <div class="stat-num">3+</div>
-        <div class="stat-label">Models Used</div>
-        <div class="stat-detail">XGBoost · RF · Prophet</div>
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Projects</div>
+        <div class="stat-detail">데이터 분석 · AI · IoT · iOS</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">5</div>
-        <div class="stat-label">Notebooks</div>
-        <div class="stat-detail">전처리 → 모델링 → 시각화</div>
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Tech Stack</div>
+        <div class="stat-detail">Python · SQL · React · ML · Cloud</div>
       </div>
       <div class="stat-card wide">
-        <div class="stat-num">K-means Clustering</div>
-        <div class="stat-label">Core Methodology</div>
-        <div class="stat-detail">보조금 · 충전소 · 인구 데이터 기반 지역 군집화 + SHAP 변수 중요도 분석</div>
+        <div class="stat-num">Data → Insight → Action</div>
+        <div class="stat-label">Core Philosophy</div>
+        <div class="stat-detail">분석으로 끝내지 않고, 의사결정에 기여하는 인사이트를 도출합니다</div>
       </div>
     </div>
   </div>
@@ -700,6 +704,10 @@
         <li>
           <span class="info-key">관심분야</span>
           <span class="info-val">데이터 분석 · Applied AI · ML 모델링</span>
+        </li>
+        <li>
+          <span class="info-key">자격증</span>
+          <span class="info-val">ADsP · SQLD · 정보처리기사 필기합격</span>
         </li>
         <li>
           <span class="info-key">GitHub</span>
@@ -770,10 +778,10 @@
   <div class="project-main reveal">
     <div class="project-banner banner-ev">
       <div class="project-banner-label">01 · Data Analysis Project</div>
-      <h3 class="project-banner-title">전기차 판매 요인 분석 및<br>지역별 군집화</h3>
+      <h3 class="project-banner-title">전기차 판매 촉진 구매 요인분석<br>및 지역별 정책 제안</h3>
       <p class="project-banner-sub">
-        전국 충전소, 보조금, 주행거리, 인구 데이터를 통합하여 전기차 판매에 영향을 미치는
-        핵심 요인을 분석하고, K-means 클러스터링으로 지역별 EV 보급 패턴을 도출한 프로젝트입니다.
+        전국 충전소, 보조금, 주행거리, 인구 데이터를 통합하여 전기차 구매에 영향을 미치는
+        핵심 요인을 분석하고, K-means 클러스터링으로 지역 유형을 분류해 정책 방향을 제안한 프로젝트입니다.
       </p>
       <div class="project-tech-row">
         <span class="tech-chip">Python</span>
@@ -790,7 +798,7 @@
     <div class="project-body">
       <!-- LEFT: Notebooks -->
       <div>
-        <div class="result-card-title" style="margin-bottom:16px;">📓 분석 파이프라인</div>
+        <div class="result-card-title" style="margin-bottom:16px;">📓 분석 파이프라인 (팀 프로젝트)</div>
         <div class="nb-list">
           <div class="nb-item">
             <div class="nb-num">01</div>
@@ -804,8 +812,8 @@
           </div>
           <div class="nb-item">
             <div class="nb-num">03</div>
-            <div class="nb-title">예측 모델 학습 (XGB · RF · Prophet)</div>
-            <div class="nb-desc">시차·이동평균·이벤트 플래그 피처 엔지니어링 · Grid Search · 전진 교차검증</div>
+            <div class="nb-title">예측 모델 학습</div>
+            <div class="nb-desc">XGB · RF · Prophet 모델 학습 · Grid Search · 전진 교차검증</div>
           </div>
           <div class="nb-item">
             <div class="nb-num">04</div>
@@ -822,8 +830,28 @@
 
       <!-- RIGHT: Results -->
       <div class="project-right">
+
         <div class="result-card">
-          <div class="result-card-title">모델 성능 (R² 기반 전진 교차검증)</div>
+          <div class="result-card-title">🔍 무엇을 발견했는가</div>
+          <ul class="insight-list">
+            <li class="insight-item">SHAP 분석 결과, 충전소 수 · 시장 성숙도(시간 경과) · 보조금 지급 여부 순으로 구매에 영향 — 보조금 규모보다 충전 인프라 접근성이 핵심 요인으로 확인</li>
+            <li class="insight-item">아이오닉5 출시(2021년)가 전기차 판매 급증의 기점 — 출시 이후 시장 성숙기 진입</li>
+            <li class="insight-item">K-means(k=4)로 전국 시군구 분류 → 클러스터 0(농어촌·비수도권, 89개): 보조금 평균 1,222만원으로 최고이나 충전소 평균 23개로 인프라 최저</li>
+            <li class="insight-item">클러스터 1(광역시·경기 주요도시, 14개): 충전소 293개, 고소득 / 클러스터 2(서울, 단독): 충전소 1,468개·소득 전국 최고, 보조금은 640만원으로 최저 / 클러스터 3(수도권 외곽·강원·경상, 56개): 인프라·소득 중간, 보조금 938만원</li>
+          </ul>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-title">💡 어떤 의사결정에 기여했는가</div>
+          <ul class="insight-list">
+            <li class="insight-item">클러스터 0·3 (농어촌·수도권 외곽) → 충전소 인프라 우선 투자 필요 지역으로 특정</li>
+            <li class="insight-item">클러스터 1·2 (광역시·서울) → 보조금보다 세제혜택·충전비 지원 등 추가 정책이 효과적임을 제안</li>
+            <li class="insight-item">유가 상승 시 전기차 구매 동기 증가 → 유지비 절감 메시지 마케팅 방향 제안</li>
+          </ul>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-title">📊 모델 성능 (R² · 전진 교차검증)</div>
           <div class="model-row">
             <span class="model-name">XGBoost</span>
             <span class="model-score">Best Model</span>
@@ -839,23 +867,15 @@
         </div>
 
         <div class="result-card">
-          <div class="result-card-title">주요 인사이트</div>
+          <div class="result-card-title">🙋 내 역할</div>
           <ul class="insight-list">
-            <li class="insight-item">충전 인프라 확충이 EV 판매에 가장 큰 영향</li>
-            <li class="insight-item">보조금 규모보다 충전소 접근성이 구매 결정에 중요</li>
-            <li class="insight-item">지역별 클러스터링으로 보급 격차 패턴 발견</li>
-            <li class="insight-item">SHAP으로 비선형 변수 상호작용 효과 시각화</li>
+            <li class="insight-item">K-means 군집화 전담 — Elbow Method · 실루엣 점수로 k=4 결정</li>
+            <li class="insight-item">4개 클러스터 특성 해석 및 Plotly HTML 인터랙티브 시각화 구현</li>
+            <li class="insight-item">클러스터별 보조금·충전소·인구·보급률 분포 분석 및 인사이트 도출</li>
+            <li class="insight-item">군집화 결과 기반 정책 방향 제안 보고서 작성 — 클러스터 유형별 보조금 전략 · 충전소 인프라 우선 투자 지역 특정 · 세제혜택·충전비 지원 정책 제안</li>
           </ul>
         </div>
 
-        <div class="result-card">
-          <div class="result-card-title">데이터 소스</div>
-          <ul class="insight-list">
-            <li class="insight-item">전국 EV 충전소 현황 데이터</li>
-            <li class="insight-item">지역별 EV 보조금 · 인구 데이터</li>
-            <li class="insight-item">전기차 모델별 주행거리 데이터</li>
-          </ul>
-        </div>
       </div>
     </div>
 
@@ -869,7 +889,7 @@
   <div class="project-main reveal" style="margin-top: 32px;">
     <div class="project-banner banner-fr" style="background: linear-gradient(135deg, #0d2b1f 0%, #091f18 50%, #051510 100%);">
       <div class="project-banner-label">02 · Capstone Project · Team 체력돌파</div>
-      <h3 class="project-banner-title">Food Runner<br>AI 기반 식단·운동 헬스케어 플랫폼</h3>
+      <h3 class="project-banner-title">AI 기반 헬스케어 플랫폼</h3>
       <p class="project-banner-sub">
         음식 사진을 AI로 분석해 자동으로 식단을 기록하고 영양 정보를 제공하는 헬스케어 플랫폼.
         운동 기록 기반 칼로리 소모 계산 및 목표 맞춤 피드백을 Web · Android · iOS 크로스 플랫폼으로 제공합니다.
@@ -887,7 +907,7 @@
 
     <div class="project-body">
       <div>
-        <div class="result-card-title" style="margin-bottom:16px;">⚙️ 핵심 기능</div>
+        <div class="result-card-title" style="margin-bottom:16px;">⚙️ 핵심 기능 파이프라인</div>
         <div class="nb-list">
           <div class="nb-item">
             <div class="nb-num" style="color:#10b981;">01</div>
@@ -902,33 +922,39 @@
           <div class="nb-item">
             <div class="nb-num" style="color:#10b981;">03</div>
             <div class="nb-title">맞춤형 건강 피드백</div>
-            <div class="nb-desc">다이어트 / 벌크업 등 목표에 따른 맞춤 피드백 제공</div>
+            <div class="nb-desc">다이어트 / 벌크업 목표에 따른 개인화 피드백 제공</div>
           </div>
           <div class="nb-item">
             <div class="nb-num" style="color:#10b981;">04</div>
-            <div class="nb-title">크로스 플랫폼 지원</div>
-            <div class="nb-desc">Web (React) + 모바일 (React Native) Android · iOS 동시 지원</div>
+            <div class="nb-title">크로스 플랫폼 배포</div>
+            <div class="nb-desc">React (Web) + React Native (Android · iOS) 동시 지원</div>
           </div>
         </div>
       </div>
 
       <div>
         <div class="result-card">
-          <div class="result-card-title">시스템 아키텍처</div>
+          <div class="result-card-title">🙋 내 역할 (프론트엔드 · 운동 파트)</div>
           <ul class="insight-list">
-            <li class="insight-item">프론트: React (Web) · React Native (Mobile)</li>
-            <li class="insight-item">백엔드: Spring Boot · JWT 인증 · OpenAI API 연동</li>
-            <li class="insight-item">DB: MySQL · AWS S3 (이미지 저장)</li>
-            <li class="insight-item">인프라: AWS EC2 · Jenkins CI/CD 파이프라인</li>
+            <li class="insight-item">React · React Native 기반 운동 관련 화면 전담 구현</li>
+            <li class="insight-item">운동 종류 선택, 시간 입력, 소모 칼로리 계산 결과 표시 UI 개발</li>
+            <li class="insight-item">운동 기록 저장 및 백엔드 API 연동, 화면 간 데이터 흐름 설계</li>
           </ul>
         </div>
         <div class="result-card">
-          <div class="result-card-title">주요 성과</div>
+          <div class="result-card-title">✅ 주요 성과</div>
           <ul class="insight-list">
-            <li class="insight-item">Web · Android · iOS 3개 플랫폼 동시 배포</li>
-            <li class="insight-item">OpenAI API 기반 음식 인식 자동화 구현</li>
-            <li class="insight-item">Jenkins를 활용한 CI/CD 자동 배포 환경 구축</li>
-            <li class="insight-item">시연 영상 제작 (모바일 · 웹 각각)</li>
+            <li class="insight-item">Web · Android · iOS 3개 플랫폼 동시 배포 완료</li>
+            <li class="insight-item">OpenAI API 연동으로 음식 인식 자동화 실현</li>
+            <li class="insight-item">Jenkins CI/CD 파이프라인으로 배포 자동화 환경 구축</li>
+          </ul>
+        </div>
+        <div class="result-card">
+          <div class="result-card-title">🏗️ 시스템 아키텍처</div>
+          <ul class="insight-list">
+            <li class="insight-item">Frontend: React (Web) · React Native (Mobile)</li>
+            <li class="insight-item">Backend: Spring Boot · JWT 인증 · OpenAI API</li>
+            <li class="insight-item">Infra: AWS EC2 · S3 · Jenkins CI/CD</li>
           </ul>
         </div>
       </div>
@@ -941,19 +967,228 @@
     </div>
   </div>
 
-  <!-- COMING SOON -->
-  <div class="coming-grid reveal">
-    <div class="coming-card">
-      <div class="coming-badge">Coming Soon</div>
-      <div class="coming-card-title">AI 이미지 생성 모델 최적화</div>
-      <div class="coming-card-desc">기업 연계 프로젝트 (다우기술) · Diffusion 모델 파인튜닝</div>
+  <!-- IMOKASE PROJECT -->
+  <div class="project-main reveal" style="margin-top: 32px;">
+    <div class="project-banner banner-im" style="background: linear-gradient(135deg, #1a0d2e 0%, #120920 50%, #0a0515 100%);">
+      <div class="project-banner-label" style="color:#a78bfa;">03 · SW 프리캡스톤디자인 · Team 이모카세</div>
+      <h3 class="project-banner-title">AI 기반 이미지 생성 & 문자 전송 서비스</h3>
+      <p class="project-banner-sub">
+        사용자가 입력한 문자 메시지를 OpenAI API로 해석해 프롬프트를 생성하고,
+        Stable Diffusion으로 일러스트 스타일 이미지를 자동 생성하여 문자로 전송하는 서비스입니다.
+      </p>
+      <div class="project-tech-row">
+        <span class="tech-chip" style="background:rgba(167,139,250,0.1);border-color:rgba(167,139,250,0.25);color:#c4b5fd;">React</span>
+        <span class="tech-chip" style="background:rgba(167,139,250,0.1);border-color:rgba(167,139,250,0.25);color:#c4b5fd;">Spring Boot</span>
+        <span class="tech-chip" style="background:rgba(167,139,250,0.1);border-color:rgba(167,139,250,0.25);color:#c4b5fd;">Stable Diffusion XL</span>
+        <span class="tech-chip" style="background:rgba(167,139,250,0.1);border-color:rgba(167,139,250,0.25);color:#c4b5fd;">OpenAI API</span>
+        <span class="tech-chip" style="background:rgba(167,139,250,0.1);border-color:rgba(167,139,250,0.25);color:#c4b5fd;">Flask</span>
+        <span class="tech-chip" style="background:rgba(167,139,250,0.1);border-color:rgba(167,139,250,0.25);color:#c4b5fd;">AWS EC2</span>
+        <span class="tech-chip" style="background:rgba(167,139,250,0.1);border-color:rgba(167,139,250,0.25);color:#c4b5fd;">MariaDB</span>
+      </div>
     </div>
-    <div class="coming-card">
-      <div class="coming-badge">Coming Soon</div>
-      <div class="coming-card-title">IoT 스마트 홈케어 시스템</div>
-      <div class="coming-card-desc">센서 데이터 수집 · 실시간 모니터링</div>
+
+    <div class="project-body">
+      <div>
+        <div class="result-card-title" style="margin-bottom:16px;">⚙️ 핵심 기능 파이프라인</div>
+        <div class="nb-list">
+          <div class="nb-item">
+            <div class="nb-num" style="color:#a78bfa;">01</div>
+            <div class="nb-title">메시지 기반 프롬프트 자동 생성</div>
+            <div class="nb-desc">사용자 문자 입력 → OpenAI API로 해석 → 이미지 생성용 프롬프트 변환</div>
+          </div>
+          <div class="nb-item">
+            <div class="nb-num" style="color:#a78bfa;">02</div>
+            <div class="nb-title">Stable Diffusion XL 이미지 생성</div>
+            <div class="nb-desc">일러스트 스타일 맞춤 이미지 생성 · 평균 5초 이내 생성 목표</div>
+          </div>
+          <div class="nb-item">
+            <div class="nb-num" style="color:#a78bfa;">03</div>
+            <div class="nb-title">이미지 텍스트 편집 & 문자 전송</div>
+            <div class="nb-desc">생성 이미지에 텍스트 삽입·편집 후 뿌리오 API로 문자 전송</div>
+          </div>
+          <div class="nb-item">
+            <div class="nb-num" style="color:#a78bfa;">04</div>
+            <div class="nb-title">최근 생성 이미지 목록 관리</div>
+            <div class="nb-desc">최근 생성한 이미지 10장 저장 · 재선택 및 재활용 기능</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="result-card">
+          <div class="result-card-title">🙋 내 역할 (AI 이미지 생성 파트)</div>
+          <ul class="insight-list">
+            <li class="insight-item">다양한 이미지 생성 AI 모델 테스트 및 성능 비교</li>
+            <li class="insight-item">LoRA 모델 탐색 — 일러스트 스타일에 최적화된 모델 선정</li>
+            <li class="insight-item">샘플링 메소드 비교 실험 (DDIM · Euler · DPM++) → 품질·속도 최적 조합 도출</li>
+            <li class="insight-item">최종 결과물 발표 담당</li>
+          </ul>
+        </div>
+        <div class="result-card">
+          <div class="result-card-title">✅ 주요 성과</div>
+          <ul class="insight-list">
+            <li class="insight-item">평균 5초 · 최대 7초 이내 이미지 생성 속도 달성</li>
+            <li class="insight-item">Colab 다중 인스턴스 연결로 동시 요청 처리 구조 설계</li>
+            <li class="insight-item">저작권 안전한 LoRA + 부정 프롬프트 필터링으로 이미지 품질 확보</li>
+          </ul>
+        </div>
+        <div class="result-card">
+          <div class="result-card-title">🏗️ 시스템 아키텍처</div>
+          <ul class="insight-list">
+            <li class="insight-item">Frontend: React (Web)</li>
+            <li class="insight-item">Backend: Spring Boot · OpenAI API · 뿌리오 API</li>
+            <li class="insight-item">AI: Stable Diffusion XL · Flask · Google Colab</li>
+            <li class="insight-item">Infra: AWS EC2 · MariaDB</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-footer">
+      <a class="btn btn-ghost" href="https://github.com/Urasica/Precapstone-Design-image-AI-front" target="_blank">Frontend GitHub</a>
+      <a class="btn btn-ghost" href="https://github.com/Urasica/Precapstone-Design-image-AI-back" target="_blank">Backend GitHub</a>
+      <a class="btn btn-ghost" href="https://www.youtube.com/watch?v=14B8NUl3yfs" target="_blank">시연 영상</a>
     </div>
   </div>
+
+  <!-- SMART HOME PROJECT -->
+  <div class="project-main reveal" style="margin-top: 32px;">
+    <div class="project-banner" style="background: linear-gradient(135deg, #0f1f0f 0%, #0a1a0a 50%, #051005 100%);">
+      <div class="project-banner-label" style="color:#4ade80;">04 · IoT 개인 프로젝트 · 단독 개발</div>
+      <h3 class="project-banner-title">IoT 스마트 홈 케어 서비스</h3>
+      <p class="project-banner-sub">
+        라즈베리파이와 다양한 센서를 활용해 온도·습도·조도·움직임 데이터를 실시간 수집하고
+        웹 브라우저에서 모니터링·제어할 수 있는 스마트 홈 자동화 시스템입니다.
+      </p>
+      <div class="project-tech-row">
+        <span class="tech-chip" style="background:rgba(74,222,128,0.1);border-color:rgba(74,222,128,0.25);color:#86efac;">Raspberry Pi</span>
+        <span class="tech-chip" style="background:rgba(74,222,128,0.1);border-color:rgba(74,222,128,0.25);color:#86efac;">Python</span>
+        <span class="tech-chip" style="background:rgba(74,222,128,0.1);border-color:rgba(74,222,128,0.25);color:#86efac;">Flask</span>
+        <span class="tech-chip" style="background:rgba(74,222,128,0.1);border-color:rgba(74,222,128,0.25);color:#86efac;">MQTT</span>
+        <span class="tech-chip" style="background:rgba(74,222,128,0.1);border-color:rgba(74,222,128,0.25);color:#86efac;">JavaScript</span>
+        <span class="tech-chip" style="background:rgba(74,222,128,0.1);border-color:rgba(74,222,128,0.25);color:#86efac;">Chart.js</span>
+      </div>
+    </div>
+
+    <div class="project-body">
+      <div>
+        <div class="result-card-title" style="margin-bottom:16px;">⚙️ 핵심 기능</div>
+        <div class="nb-list">
+          <div class="nb-item">
+            <div class="nb-num" style="color:#4ade80;">01</div>
+            <div class="nb-title">실시간 센서 데이터 수집</div>
+            <div class="nb-desc">온도·습도·조도 센서 데이터를 MQTT로 2초 이내 웹 브라우저에 반영</div>
+          </div>
+          <div class="nb-item">
+            <div class="nb-num" style="color:#4ade80;">02</div>
+            <div class="nb-title">화재 감지 알림</div>
+            <div class="nb-desc">온도 임계값 초과 시 화재 경보 알림 + 빨간 LED 자동 점등</div>
+          </div>
+          <div class="nb-item">
+            <div class="nb-num" style="color:#4ade80;">03</div>
+            <div class="nb-title">자동 조명 제어</div>
+            <div class="nb-desc">조도 센서 기반 자동 조명 ON/OFF · 웹 브라우저에서 원격 제어</div>
+          </div>
+          <div class="nb-item">
+            <div class="nb-num" style="color:#4ade80;">04</div>
+            <div class="nb-title">CCTV & 조도 그래프</div>
+            <div class="nb-desc">카메라 실시간 스트리밍 · 조도 데이터 Chart.js 실시간 시각화</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="result-card">
+          <div class="result-card-title">🙋 내 역할 (단독 개발)</div>
+          <ul class="insight-list">
+            <li class="insight-item">하드웨어 설계 — 라즈베리파이 · 온습도·조도·초음파 센서 · LED · 카메라 연결</li>
+            <li class="insight-item">Python으로 센서 제어 및 MQTT 기반 데이터 송수신 구현</li>
+            <li class="insight-item">Flask 웹 서버 구축 · JavaScript로 실시간 데이터 시각화</li>
+          </ul>
+        </div>
+        <div class="result-card">
+          <div class="result-card-title">✅ 주요 성과</div>
+          <ul class="insight-list">
+            <li class="insight-item">초기 오류 발생률 15% → 반복 테스트·수정으로 0% 달성</li>
+            <li class="insight-item">센서 감지 데이터 2초 이내 웹 반영 구현</li>
+            <li class="insight-item">화재 감지·자동 조명·가습기 제어 등 실제 서비스 수준으로 완성</li>
+          </ul>
+        </div>
+        <div class="result-card">
+          <div class="result-card-title">🏗️ 시스템 구성</div>
+          <ul class="insight-list">
+            <li class="insight-item">Hardware: Raspberry Pi · 온습도·조도·초음파 센서 · LED · USB 카메라</li>
+            <li class="insight-item">Backend: Python · Flask · MQTT (Mosquitto)</li>
+            <li class="insight-item">Frontend: HTML · JavaScript · Chart.js · Paho MQTT</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORKOUT LOGGER PROJECT -->
+  <div class="project-main reveal" style="margin-top: 32px;">
+    <div class="project-banner" style="background: linear-gradient(135deg, #1a0f00 0%, #150c00 50%, #0f0800 100%);">
+      <div class="project-banner-label" style="color:#fb923c;">05 · iOS 개인 프로젝트 · 단독 개발</div>
+      <h3 class="project-banner-title">운동 기록 앱 (Workout Logger)</h3>
+      <p class="project-banner-sub">
+        기획부터 설계·개발·배포까지 전 과정을 단독으로 진행한 iOS 운동 기록 관리 앱.
+        데이터 구조 설계를 먼저 정리하고 사용자가 운동 패턴을 직관적으로 파악할 수 있도록 시각화에 집중했습니다.
+      </p>
+      <div class="project-tech-row">
+        <span class="tech-chip" style="background:rgba(251,146,60,0.1);border-color:rgba(251,146,60,0.25);color:#fdba74;">Swift</span>
+        <span class="tech-chip" style="background:rgba(251,146,60,0.1);border-color:rgba(251,146,60,0.25);color:#fdba74;">iOS</span>
+        <span class="tech-chip" style="background:rgba(251,146,60,0.1);border-color:rgba(251,146,60,0.25);color:#fdba74;">Firebase</span>
+        <span class="tech-chip" style="background:rgba(251,146,60,0.1);border-color:rgba(251,146,60,0.25);color:#fdba74;">Chart (그래프)</span>
+      </div>
+    </div>
+
+    <div class="project-body">
+      <div>
+        <div class="result-card-title" style="margin-bottom:16px;">⚙️ 핵심 기능</div>
+        <div class="nb-list">
+          <div class="nb-item">
+            <div class="nb-num" style="color:#fb923c;">01</div>
+            <div class="nb-title">운동 기록 관리</div>
+            <div class="nb-desc">운동 종목·세트·횟수·무게 등 다양한 기록 저장 및 관리</div>
+          </div>
+          <div class="nb-item">
+            <div class="nb-num" style="color:#fb923c;">02</div>
+            <div class="nb-title">주간 목표 달성률 자동 계산</div>
+            <div class="nb-desc">기록 데이터 기반으로 주간 운동 목표 달성률 자동 산출</div>
+          </div>
+          <div class="nb-item">
+            <div class="nb-num" style="color:#fb923c;">03</div>
+            <div class="nb-title">운동량 시각화</div>
+            <div class="nb-desc">주간 운동량을 그래프로 표현해 패턴을 직관적으로 파악</div>
+          </div>
+          <div class="nb-item">
+            <div class="nb-num" style="color:#fb923c;">04</div>
+            <div class="nb-title">Firebase 클라우드 동기화</div>
+            <div class="nb-desc">로그인 · 기기 간 데이터 동기화로 안정적인 클라우드 저장</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="result-card">
+          <div class="result-card-title">🙋 내 역할 (단독 개발)</div>
+          <ul class="insight-list">
+            <li class="insight-item">기획·UI 설계·개발·배포 전 과정 단독 수행</li>
+            <li class="insight-item">사용자 관점에서 데이터 구조 먼저 설계 — 어떤 정보가 의미 있는지 고민 후 구현</li>
+            <li class="insight-item">Firebase 연동으로 로그인·클라우드 동기화 구조 설계 및 구현</li>
+          </ul>
+        </div>
+        <div class="result-card">
+          <div class="result-card-title">💡 핵심 인사이트</div>
+          <ul class="insight-list">
+            <li class="insight-item">단순 기능 구현을 넘어 "데이터를 어떤 형태로 제공해야 사용자에게 의미 있는가"를 고민한 첫 프로젝트</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- CONTACT -->
