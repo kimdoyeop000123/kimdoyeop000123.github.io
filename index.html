@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kim Doyeop | Data Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0c0f;
+      --bg2: #0f1218;
+      --bg3: #151a22;
+      --border: #1e2530;
+      --border2: #2a3444;
+      --text: #e8edf5;
+      --text2: #8a9ab5;
+      --text3: #4a5a72;
+      --accent: #3b82f6;
+      --accent2: #60a5fa;
+      --accent3: #1d4ed8;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --tag-bg: #111827;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 60px;
+      background: rgba(10, 12, 15, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent2); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 80px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(16,185,129,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.25);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent2);
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(42px, 5vw, 64px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 8px;
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+    .hero-name .ko {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 0.55em;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: var(--text2);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .hero-title {
+      font-size: 18px;
+      color: var(--accent2);
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s ease 0.2s both;
+    }
+
+    .hero-desc {
+      color: var(--text2);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 36px;
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s ease 0.4s both;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent3); transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border2);
+      color: var(--text2);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent2); }
+
+    /* HERO RIGHT — STATS */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      animation: fadeUp 0.6s ease 0.35s both;
+    }
+    .stat-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .stat-card:hover { border-color: var(--border2); }
+    .stat-card.wide { grid-column: 1 / -1; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent2);
+      letter-spacing: -1px;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text3);
+      margin-top: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .stat-detail {
+      font-size: 13px;
+      color: var(--text2);
+      margin-top: 8px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SECTIONS */
+    section { padding: 80px 80px; }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 48px;
+    }
+
+    /* ABOUT */
+    #about { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 1100px;
+    }
+    .about-text p {
+      color: var(--text2);
+      line-height: 1.9;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+    .info-list { list-style: none; }
+    .info-list li {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .info-list li:last-child { border-bottom: none; }
+    .info-key {
+      color: var(--text3);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      min-width: 80px;
+      padding-top: 1px;
+    }
+    .info-val { color: var(--text); }
+
+    /* SKILLS */
+    .skill-groups {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+    }
+    .skill-group {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .skill-group-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text3);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 16px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border2);
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text2);
+    }
+    .tag.accent { border-color: rgba(59,130,246,0.4); color: var(--accent2); }
+
+    /* PROJECT */
+    #project { background: var(--bg); }
+    .project-header {
+      max-width: 1100px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+    .project-header .section-title { margin-bottom: 0; }
+
+    .project-main {
+      max-width: 1100px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .project-banner {
+      background: linear-gradient(135deg, #0d1f3c 0%, #0a1628 50%, #061020 100%);
+      padding: 48px 52px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-banner::before {
+      content: 'EV';
+      position: absolute;
+      right: -20px; top: -30px;
+      font-family: 'Syne', sans-serif;
+      font-size: 200px;
+      font-weight: 800;
+      color: rgba(59,130,246,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .project-banner-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .project-banner-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(24px, 2.5vw, 36px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .project-banner-sub {
+      color: var(--text2);
+      font-size: 14px;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .project-tech-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tech-chip {
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.2);
+      color: var(--accent2);
+      border-radius: 4px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .project-body {
+      padding: 48px 52px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .nb-list { display: flex; flex-direction: column; gap: 12px; }
+    .nb-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      transition: border-color 0.2s, transform 0.2s;
+      cursor: default;
+    }
+    .nb-item:hover { border-color: var(--accent); transform: translateX(4px); }
+    .nb-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .nb-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .nb-desc {
+      font-size: 12px;
+      color: var(--text3);
+      line-height: 1.5;
+    }
+
+    .project-right {}
+    .result-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .result-card-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text3);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 14px;
+    }
+    .model-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .model-row:last-child { border-bottom: none; }
+    .model-name { font-family: 'JetBrains Mono', monospace; color: var(--text2); }
+    .model-score {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .insight-list { list-style: none; }
+    .insight-item {
+      display: flex;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+    .insight-item::before {
+      content: '→';
+      color: var(--accent);
+      flex-shrink: 0;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .project-footer {
+      padding: 24px 52px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    /* COMING SOON CARDS */
+    .coming-grid {
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .coming-card {
+      background: var(--bg3);
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      opacity: 0.5;
+    }
+    .coming-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .coming-card-desc {
+      font-size: 12px;
+      color: var(--text3);
+      line-height: 1.5;
+    }
+    .coming-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--amber);
+      border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 4px;
+      padding: 2px 8px;
+      margin-bottom: 12px;
+    }
+
+    /* CONTACT */
+    #contact { background: var(--bg2); border-top: 1px solid var(--border); }
+    .contact-inner {
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .contact-desc {
+      color: var(--text2);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .contact-items { display: flex; flex-direction: column; gap: 16px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .contact-item:hover { border-color: var(--accent); }
+    .contact-icon {
+      width: 36px; height: 36px;
+      background: rgba(59,130,246,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .contact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text3);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 2px;
+    }
+    .contact-val {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text3);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 100px 24px 60px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      section { padding: 60px 24px; }
+      .about-grid, .contact-inner, .project-body { grid-template-columns: 1fr; gap: 32px; }
+      .skill-groups, .coming-grid { grid-template-columns: 1fr; }
+      .project-banner, .project-body, .project-footer { padding-left: 24px; padding-right: 24px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">KDY<span>.</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#project">Project</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">Data Analyst · Job Seeking</div>
+      <h1 class="hero-name">
+        <span class="ko">김도엽</span>
+        Kim Doyeop
+      </h1>
+      <div class="hero-title">Data Analyst & Applied AI Engineer</div>
+      <p class="hero-desc">
+        데이터로 문제를 정의하고, 분석으로 인사이트를 도출합니다.<br>
+        모빌리티 · 물류 도메인의 데이터 분석에 관심이 깊으며,<br>
+        ML 기반 예측 모델링과 클러스터링 분석을 주로 다룹니다.
+      </p>
+      <div class="hero-links">
+        <a class="btn btn-primary" href="#project">프로젝트 보기</a>
+        <a class="btn btn-ghost" href="https://github.com/kimdoyeop000123" target="_blank">GitHub →</a>
+        <a class="btn btn-ghost" href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Models Used</div>
+        <div class="stat-detail">XGBoost · RF · Prophet</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Notebooks</div>
+        <div class="stat-detail">전처리 → 모델링 → 시각화</div>
+      </div>
+      <div class="stat-card wide">
+        <div class="stat-num">K-means Clustering</div>
+        <div class="stat-label">Core Methodology</div>
+        <div class="stat-detail">보조금 · 충전소 · 인구 데이터 기반 지역 군집화 + SHAP 변수 중요도 분석</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <div class="section-label">// about me</div>
+      <h2 class="section-title">소개</h2>
+      <p>
+        한성대학교에서 모바일 소프트웨어 전공, 빅데이터 트랙을 이수하며 데이터 분석과 AI 엔지니어링 역량을 쌓았습니다.
+      </p>
+      <p>
+        야구 데이터 분석에 대한 오랜 관심이 계기가 되어 스포츠·모빌리티 도메인에서의 데이터 기반 의사결정을 커리어 방향으로 설정했습니다.
+      </p>
+      <p>
+        단순한 분석을 넘어, 비즈니스 문제를 정의하고 ML 모델과 시각화로 실질적인 인사이트를 제공하는 것을 목표로 합니다.
+      </p>
+    </div>
+    <div>
+      <ul class="info-list">
+        <li>
+          <span class="info-key">학교</span>
+          <span class="info-val">한성대학교</span>
+        </li>
+        <li>
+          <span class="info-key">전공</span>
+          <span class="info-val">모바일 소프트웨어 · 빅데이터 트랙</span>
+        </li>
+        <li>
+          <span class="info-key">관심분야</span>
+          <span class="info-val">데이터 분석 · Applied AI · 모빌리티</span>
+        </li>
+        <li>
+          <span class="info-key">GitHub</span>
+          <span class="info-val">github.com/kimdoyeop000123</span>
+        </li>
+        <li>
+          <span class="info-key">이메일</span>
+          <span class="info-val">kdy2000123@naver.com</span>
+        </li>
+        <li>
+          <span class="info-key">연락처</span>
+          <span class="info-val">010-5555-4058</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">// tech stack</div>
+  <h2 class="section-title">기술 스택</h2>
+  <div class="skill-groups reveal">
+    <div class="skill-group">
+      <div class="skill-group-title">Language & Data</div>
+      <div class="skill-tags">
+        <span class="tag accent">Python</span>
+        <span class="tag accent">R</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">NumPy</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">ML / AI</div>
+      <div class="skill-tags">
+        <span class="tag accent">XGBoost</span>
+        <span class="tag accent">Random Forest</span>
+        <span class="tag">Prophet</span>
+        <span class="tag">K-means</span>
+        <span class="tag">SHAP</span>
+        <span class="tag">Scikit-learn</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Visualization & Tools</div>
+      <div class="skill-tags">
+        <span class="tag">Matplotlib</span>
+        <span class="tag">Seaborn</span>
+        <span class="tag">Plotly</span>
+        <span class="tag">Jupyter</span>
+        <span class="tag">Git</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT -->
+<section id="project">
+  <div class="project-header reveal">
+    <div>
+      <div class="section-label">// projects</div>
+      <h2 class="section-title">프로젝트</h2>
+    </div>
+  </div>
+
+  <!-- EV PROJECT MAIN -->
+  <div class="project-main reveal">
+    <div class="project-banner">
+      <div class="project-banner-label">01 · Data Analysis Project</div>
+      <h3 class="project-banner-title">전기차 판매 요인 분석 및<br>지역별 군집화</h3>
+      <p class="project-banner-sub">
+        전국 충전소, 보조금, 주행거리, 인구 데이터를 통합하여 전기차 판매에 영향을 미치는
+        핵심 요인을 분석하고, K-means 클러스터링으로 지역별 EV 보급 패턴을 도출한 프로젝트입니다.
+      </p>
+      <div class="project-tech-row">
+        <span class="tech-chip">Python</span>
+        <span class="tech-chip">XGBoost</span>
+        <span class="tech-chip">Random Forest</span>
+        <span class="tech-chip">Prophet</span>
+        <span class="tech-chip">K-means</span>
+        <span class="tech-chip">SHAP</span>
+        <span class="tech-chip">Pandas</span>
+        <span class="tech-chip">Plotly</span>
+      </div>
+    </div>
+
+    <div class="project-body">
+      <!-- LEFT: Notebooks -->
+      <div>
+        <div class="result-card-title" style="margin-bottom:16px;">📓 분석 파이프라인</div>
+        <div class="nb-list">
+          <div class="nb-item">
+            <div class="nb-num">01</div>
+            <div class="nb-title">충전소 데이터 전처리</div>
+            <div class="nb-desc">전국 충전소 월별 증가/누적 수 전처리 · 지역별 행렬 생성</div>
+          </div>
+          <div class="nb-item">
+            <div class="nb-num">02</div>
+            <div class="nb-title">전기차 주행거리 지표화</div>
+            <div class="nb-desc">누적 최대 이동평균 방식으로 주행거리 지표 전처리</div>
+          </div>
+          <div class="nb-item">
+            <div class="nb-num">03</div>
+            <div class="nb-title">예측 모델 학습 (XGB · RF · Prophet)</div>
+            <div class="nb-desc">시차·이동평균·이벤트 플래그 피처 엔지니어링 · Grid Search · 전진 교차검증</div>
+          </div>
+          <div class="nb-item">
+            <div class="nb-num">04</div>
+            <div class="nb-title">K-means 클러스터링</div>
+            <div class="nb-desc">Elbow Method + 실루엣 점수로 k 결정 · 지역별 보급 패턴 군집화 · HTML 시각화</div>
+          </div>
+          <div class="nb-item">
+            <div class="nb-num">05</div>
+            <div class="nb-title">SHAP 변수 중요도 분석</div>
+            <div class="nb-desc">XGB · RF SHAP 값 계산 · 변수 의존성 · 상관관계 시각화</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Results -->
+      <div class="project-right">
+        <div class="result-card">
+          <div class="result-card-title">모델 성능 (R² 기반 전진 교차검증)</div>
+          <div class="model-row">
+            <span class="model-name">XGBoost</span>
+            <span class="model-score">Best Model</span>
+          </div>
+          <div class="model-row">
+            <span class="model-name">Random Forest</span>
+            <span class="model-score">Tuned</span>
+          </div>
+          <div class="model-row">
+            <span class="model-name">Prophet</span>
+            <span class="model-score">Baseline</span>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-title">주요 인사이트</div>
+          <ul class="insight-list">
+            <li class="insight-item">충전 인프라 확충이 EV 판매에 가장 큰 영향</li>
+            <li class="insight-item">보조금 규모보다 충전소 접근성이 구매 결정에 중요</li>
+            <li class="insight-item">지역별 클러스터링으로 보급 격차 패턴 발견</li>
+            <li class="insight-item">SHAP으로 비선형 변수 상호작용 효과 시각화</li>
+          </ul>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-title">데이터 소스</div>
+          <ul class="insight-list">
+            <li class="insight-item">전국 EV 충전소 현황 데이터</li>
+            <li class="insight-item">지역별 EV 보조금 · 인구 데이터</li>
+            <li class="insight-item">전기차 모델별 주행거리 데이터</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-footer">
+      <a class="btn btn-primary" href="https://github.com/J2H3233/ev_project" target="_blank">GitHub 보기 →</a>
+      <a class="btn btn-ghost" href="https://www.canva.com/design/DAGkVM7qDQw/P3Zg1elwo83iBKe83ARdtQ/edit" target="_blank">보고서 (Canva)</a>
+    </div>
+  </div>
+
+  <!-- COMING SOON -->
+  <div class="coming-grid reveal">
+    <div class="coming-card">
+      <div class="coming-badge">Coming Soon</div>
+      <div class="coming-card-title">AI 이미지 생성 모델 최적화</div>
+      <div class="coming-card-desc">기업 연계 프로젝트 (다우기술) · Diffusion 모델 파인튜닝</div>
+    </div>
+    <div class="coming-card">
+      <div class="coming-badge">Coming Soon</div>
+      <div class="coming-card-title">AI 기반 헬스케어 시스템</div>
+      <div class="coming-card-desc">의료 데이터 분석 · 예측 모델 적용</div>
+    </div>
+    <div class="coming-card">
+      <div class="coming-badge">Coming Soon</div>
+      <div class="coming-card-title">IoT 스마트 홈케어 시스템</div>
+      <div class="coming-card-desc">센서 데이터 수집 · 실시간 모니터링</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner reveal">
+    <div>
+      <div class="section-label">// contact</div>
+      <h2 class="section-title">연락처</h2>
+      <p class="contact-desc">
+        데이터 분석, AI 엔지니어링 관련 포지션에 관심이 있습니다.<br>
+        언제든지 편하게 연락 주세요.
+      </p>
+    </div>
+    <div class="contact-items">
+      <a class="contact-item" href="mailto:kdy2000123@naver.com">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val">kdy2000123@naver.com</div>
+        </div>
+      </a>
+      <a class="contact-item" href="tel:010-5555-4058">
+        <div class="contact-icon">📱</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-val">010-5555-4058</div>
+        </div>
+      </a>
+      <a class="contact-item" href="https://github.com/kimdoyeop000123" target="_blank">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:#8a9ab5">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-val">github.com/kimdoyeop000123</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Kim Doyeop · Built with HTML/CSS · Hosted on GitHub Pages
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+
+</body>
+</html>
